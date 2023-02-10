@@ -1,5 +1,8 @@
 using Moq;
 using FluentAssertions;
+using ConsultaCredito.Models;
+using ConsultaCredito.Enums;
+using ConsultaCredito.Services;
 
 namespace ConsultaCredito.Testes;
 
@@ -49,8 +52,10 @@ public class TestesAnaliseCredito
     [Trait("CPF Invalido", "Simular")]
     public void TestarCPFInvalidoMoq()
     {
-        StatusConsultaCredito status =
-            ObterStatusAnaliseCredito(CPF_INVALIDO);
+        // Arrange, Act
+        StatusConsultaCredito status = ObterStatusAnaliseCredito(CPF_INVALIDO);
+
+        // Assert
         status.Should().Be(StatusConsultaCredito.ParametroEnvioInvalido,
             "Resultado incorreto para um CPF inválido");
     }
@@ -59,8 +64,10 @@ public class TestesAnaliseCredito
     [Trait("Erro Comunicacao", "Simular")]
     public void TestarErroComunicacaoMoq()
     {
-        StatusConsultaCredito status =
-            ObterStatusAnaliseCredito(CPF_ERRO_COMUNICACAO);
+        // Arrange, Act
+        StatusConsultaCredito status = ObterStatusAnaliseCredito(CPF_ERRO_COMUNICACAO);
+
+        // Assert
         status.Should().Be(StatusConsultaCredito.ErroComunicacao,
             "Resultado incorreto para um erro de comunicação");
     }
@@ -69,8 +76,10 @@ public class TestesAnaliseCredito
     [Trait("Sem Pendencias", "Simular")]
     public void TestarCPFSemPendenciasMoq()
     {
-        StatusConsultaCredito status =
-            ObterStatusAnaliseCredito(CPF_SEM_PENDENCIAS);
+        // Arrange, Act
+        StatusConsultaCredito status = ObterStatusAnaliseCredito(CPF_SEM_PENDENCIAS);
+
+        // Assert
         status.Should().Be(StatusConsultaCredito.SemPendencias,
             "Resultado incorreto para um CPF sem pendências");
     }
@@ -79,8 +88,10 @@ public class TestesAnaliseCredito
     [Trait("Inadimplente", "Simular")]
     public void TestarCPFInadimplenteMoq()
     {
-        StatusConsultaCredito status =
-            ObterStatusAnaliseCredito(CPF_INADIMPLENTE);
+        // Arrange, Act
+        StatusConsultaCredito status = ObterStatusAnaliseCredito(CPF_INADIMPLENTE);
+
+        // Assert
         status.Should().Be(StatusConsultaCredito.Inadimplente,
             "Resultado incorreto para um CPF inadimplente");
     }
