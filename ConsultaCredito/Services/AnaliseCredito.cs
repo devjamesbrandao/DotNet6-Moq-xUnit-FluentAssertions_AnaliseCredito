@@ -1,4 +1,6 @@
-﻿namespace ConsultaCredito;
+﻿using ConsultaCredito.Enums;
+
+namespace ConsultaCredito.Services;
 
 public class AnaliseCredito
 {
@@ -13,8 +15,7 @@ public class AnaliseCredito
     {
         try
         {
-            var pendencias =
-                _servConsultaCredito.ConsultarPendenciasPorCPF(cpf);
+            var pendencias = _servConsultaCredito.ConsultarPendenciasPorCPF(cpf);
 
             if (pendencias == null)
                 return StatusConsultaCredito.ParametroEnvioInvalido;

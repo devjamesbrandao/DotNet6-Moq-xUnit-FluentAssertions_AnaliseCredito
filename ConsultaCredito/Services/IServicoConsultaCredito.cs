@@ -1,4 +1,6 @@
-﻿namespace ConsultaCredito;
+﻿using ConsultaCredito.Models;
+
+namespace ConsultaCredito.Services;
 
 public interface IServicoConsultaCredito
 {
